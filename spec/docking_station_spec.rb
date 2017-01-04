@@ -22,7 +22,7 @@ describe DockingStation do
 
   it { is_expected.to respond_to(:dock).with(1).argument }
 
-  it { is_expected.to respond_to(:bike) }
+  it { is_expected.to respond_to(:bikes) }
 
   it 'docks bikes' do
     bike = Bike.new
@@ -32,7 +32,7 @@ describe DockingStation do
   it 'returns docked bikes' do
     bike = Bike.new
     subject.dock(bike)
-    expect(subject.bike).to eq [bike]
+    expect(subject.bikes).to eq [bike]
   end
 
   describe '#release_bike' do
@@ -51,13 +51,12 @@ describe DockingStation do
       bike = double(:bike)
       19.times{ subject.dock(bike)}
       subject.release_bike
-      expect(subject.bike.count).to eq 18
+      expect(subject.bikes.count).to eq 18
     end
 
     describe '#dock' do
       it 'raises an error when full' do
-        21.times { subject.dock Bike.new }
-        expect { subject.dock Bike.new }.to raise_error 'Docking station full'
+        expect {25.times{ subject.dock(double(:bike))} }.to raise_error('Docking station full')
       end
     end
   end
