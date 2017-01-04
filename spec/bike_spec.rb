@@ -1,4 +1,4 @@
-require 'bike'
+require 'hired_bike'
 
 describe Bike do
   it 'is of class Bike' do
