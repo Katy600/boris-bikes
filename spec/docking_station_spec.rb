@@ -27,7 +27,7 @@ describe DockingStation do
 
   it 'releases working bikes' do
     bike = Bike.new
-    expect(bike.working).to eq true
+    expect(bike.broken?).to eq nil
   end
 
   it { is_expected.to respond_to(:dock).with(1).argument }
@@ -57,6 +57,13 @@ describe DockingStation do
     it 'raises an error when there are no bikes available' do
       expect { subject.release_bike }.to raise_error 'No bikes available'
     end
+
+    # it 'raises an error when a bike is broken' do
+    #   bike = Bike.new
+    #   docking_station = DockingStation.new
+    #   docking_station.dock(bike, 'broken')
+    #   expect { subject.release_bike }.to raise_error 'This bike is broken'
+    # end
 
     # it 'does not raise an error when there is less than 20 bikes docked' do
     #   bike = double(:bike)
