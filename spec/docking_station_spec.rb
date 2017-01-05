@@ -49,9 +49,11 @@ describe DockingStation do
 
     it 'does not raise an error when there is less than 20 bikes docked' do
       bike = double(:bike)
-      19.times{ subject.dock(bike)}
+      DockingStation::DEFAULT_CAPACITY.times do
+      subject.dock bike
+end
       subject.release_bike
-      expect(subject.bikes.count).to eq 18
+      expect(subject.bikes.count).to eq 19
     end
 
     describe '#dock' do
