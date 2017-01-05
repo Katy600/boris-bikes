@@ -12,8 +12,12 @@ attr_reader :bikes
   end
 
   def dock(bike)
-    raise 'Docking station full' if @bikes.length >= 21
+    raise 'Docking station full' if self.full?
      @bikes.length
      @bikes << bike
+  end
+
+  def full?
+    @bikes.length >= 21
   end
 end
