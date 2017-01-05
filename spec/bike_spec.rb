@@ -1,5 +1,5 @@
 require 'hired_bike'
-
+require 'docking_station'
 describe Bike do
   it 'is of class Bike' do
     expect(subject).to be_instance_of Bike
@@ -7,6 +7,13 @@ describe Bike do
 
   it 'is working' do
     bike = Bike.new
-    expect(bike).to be_working
+    expect(bike.working).to eq true
+  end
+
+  it 'Can be returned as broken' do
+      bike = Bike.new
+      docking_station = DockingStation.new
+      docking_station.dock(bike, 'broken')
+      expect(bike.working).to eq false
   end
 end

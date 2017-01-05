@@ -1,6 +1,9 @@
-
+require_relative 'docking_station'
 class Bike
-  def working?
-    true
+  attr_accessor :working
+
+  def initialize(working=true)
+    @working = working
   end
+
 end
