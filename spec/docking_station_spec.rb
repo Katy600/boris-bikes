@@ -15,6 +15,16 @@ describe DockingStation do
       expect(subject.release_bike).to eq bike
     end
 
+    it 'has a default capacity' do
+      expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
+    end
+
+    # it 'can change its capacity' do
+    #   docking_station = DockingStation.new
+    #   docking_station(10)
+    #   expect(docking_station.capacity).to eq DockingStation::(10)
+    # end
+
   it 'releases working bikes' do
     bike = Bike.new
     expect(bike).to be_working
@@ -49,16 +59,18 @@ describe DockingStation do
 
     it 'does not raise an error when there is less than 20 bikes docked' do
       bike = double(:bike)
-      DockingStation::DEFAULT_CAPACITY.times do
-      subject.dock bike
-end
+        DockingStation::DEFAULT_CAPACITY.times do
+        subject.dock bike
+        end
       subject.release_bike
       expect(subject.bikes.count).to eq 19
     end
 
     describe '#dock' do
       it 'raises an error when full' do
-        expect {25.times{ subject.dock(double(:bike))} }.to raise_error('Docking station full')
+        bike = double(:bike)
+        subject.capacity.times { subject.dock bike }
+        expect {subject.capacity.times{ subject.dock(bike)} }.to raise_error('Docking station full')
       end
     end
   end
