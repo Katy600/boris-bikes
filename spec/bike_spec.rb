@@ -7,7 +7,7 @@ describe Bike do
 
   it 'is working' do
     bike = Bike.new
-    expect(bike.broken?).to eq nil
+    expect(bike.broken).to eq false
   end
 
   # it 'Can be returned as broken' do
@@ -20,6 +20,6 @@ describe Bike do
   it 'can be reported broken' do
   subject.report_broken
   # let's use one of RSpec's predicate matchers
-  expect(subject).to be_broken
+  expect(subject.broken).to eq true
 end
 end
