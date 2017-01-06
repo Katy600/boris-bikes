@@ -13,7 +13,7 @@ describe DockingStation do
         allow(bike).to receive(:broken).and_return(false)
         subject.dock(bike)
         subject.dock(bike)
-      expect(subject.release_bike).to eq bike
+        expect(subject.release_bike).to eq bike
     end
 
     it 'has a default capacity' do
