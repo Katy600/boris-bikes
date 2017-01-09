@@ -27,4 +27,8 @@ describe Van do
     expect(subject.take_working_bikes(garage.fixed_bikes)).to eq [bike]
   end
 
+  it 'has a default capacity' do
+    expect(subject.capacity).to eq 20
+  end
+
 end
