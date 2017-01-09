@@ -20,7 +20,6 @@ describe Van do
     bike = Bike.new
     docking_station = DockingStation.new
     garage = Garage.new
-    # van = Van.new
     bike.report_broken
     docking_station.dock(bike)
     subject.take_broken_bikes(docking_station.bikes)

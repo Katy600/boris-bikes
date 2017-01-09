@@ -11,9 +11,9 @@ DEFAULT_CAPACITY = 20
 
   def release_bike
     raise "No bikes available" if empty?
-    p bike = @bikes.pop
+    bike = @bikes.pop
     raise "No bikes available" if bike.broken == true
-  p @bikes.pop
+    @bikes.pop
   end
 
   def dock(bike, status = false)

@@ -83,6 +83,10 @@ describe DockingStation do
         subject.capacity.times { subject.dock bike }
         expect {subject.capacity.times{ subject.dock(bike)} }.to raise_error('Docking station full')
       end
+
+      it 'recives bikes from van' do
+        
+      end
     end
   end
     describe 'initialization' do
