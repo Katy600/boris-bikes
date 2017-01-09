@@ -28,7 +28,17 @@ describe Van do
   end
 
   it 'has a default capacity' do
-    expect(subject.capacity).to eq 20
+    expect(subject.capacity).to eq 15
   end
-
+    describe '#takes_broken_bikes' do
+      it 'raises an error when full' do
+         docking_station = DockingStation.new
+         19.times do
+         bike = Bike.new
+         bike.report_broken
+         docking_station.dock(bike)
+      end
+     expect {subject.take_broken_bikes(docking_station.bikes)}.to raise_error('No space available')
+    end
+  end
 end
