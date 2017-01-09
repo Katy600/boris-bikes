@@ -17,4 +17,20 @@ describe Garage do
     expect(bike.broken).to eq false
   end
 
+  it 'has a default capacity' do
+    expect(subject.capacity).to eq 10
+  end
+
+# describe '#fix_broken_bike' do
+#   it 'raises an error when full' do
+#      docking_station = DockingStation.new
+#      19.times do
+#      bike = Bike.new
+#      bike.report_broken
+#      docking_station.dock(bike)
+#   end
+#  expect {subject.take_broken_bikes(docking_station.bikes)}.to raise_error('No space available')
+# end
+
+
 end
